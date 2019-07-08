@@ -1,20 +1,36 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import s from 'styled-components'
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+
+import { Container, Section } from '../components'
+import hat from '../images/hat.gif'
+
+const HatImage = s.img`
+  max-width: 100%;
+  height: auto;
+  width: 12rem;
+  display: block;
+`
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    
+    <Section centerHorizontally centerVertically>
+      <HatImage src={hat} alt="Hat" />
+    </Section>
+
+    <Section>
+      <Container>
+        <h1>We are a tech and entrepreneurship society at the University of Pennsylvania</h1>
+
+        <p>
+          Founded in 2014, Bell brings together a diverse group of Penn seniors and promotes the exchange of ideas and shared experiences.
+        </p>
+      </Container>
+    </Section>
   </Layout>
 )
 

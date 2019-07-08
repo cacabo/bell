@@ -1,33 +1,37 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import s from 'styled-components'
+
+import { WHITE, BLACK } from '../shared/colors'
+import { Container } from './Container'
+
+const Wrapper = s.div`
+  width: 100%;
+  position: absolute;
+  background: ${WHITE};
+  padding: 1rem 0;
+`
+
+const Title = s.h1`
+  a {
+    color: ${BLACK};
+    text-transform: lowercase;
+    text-decoration: none !important;
+  }
+`
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+  <header>
+    <Container>
+      <Wrapper>
+        <Title style={{ margin: 0 }}>
+          <Link to="/">
+            {siteTitle}
+          </Link>
+        </Title>
+      </Wrapper>
+    </Container>
   </header>
 )
 
@@ -36,7 +40,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: `bell`,
 }
 
 export default Header
